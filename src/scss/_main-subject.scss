@@ -1,0 +1,30 @@
+.main-subject {
+    padding-bottom: 0px !important;
+
+    .main-content {
+        margin-bottom: 0px;
+
+        .content-header {
+            display: grid;
+            grid-template-columns: 4.4% 11% 9.5% 12.5% 10.4% 7.4% 13% 9% 13% 9.8% !important;
+        }
+
+        .content-main {
+            
+            .main-item {
+                display: grid;
+                grid-template-columns: 4.4% 11% 9.5% 12.5% 10.4% 7.4% 13% 9% 13% 9.8%;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 991px) {
+    .main-subject {
+
+        .main-header,
+        .main-content {
+            width: 100%;
+        }
+    }
+}

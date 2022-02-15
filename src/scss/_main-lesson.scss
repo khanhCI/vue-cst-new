@@ -1,0 +1,72 @@
+.main-lesson {
+    
+    .main-header {
+
+        .header-taskbar {
+
+            .taskbar-grade,
+            .taskbar-subject,
+            .taskbar-type {
+                width: 143px;
+            }
+
+            .taskbar-subject {
+                
+                select {
+                    padding-right: 9px;
+                }
+            }
+
+            .taskbar-type {
+
+                select {
+                    padding-left: 20px;
+                    padding-right: 10px;
+                }
+            }
+        }
+    }
+
+    .main-content {
+        margin-top: 0;
+
+        .content-header {
+            display: grid;
+            grid-template-columns: 3.7% 9.3% 8% 8.5% 8.2% 10.6% 8.75% 6.3% 11% 7.5% 10.15% 8%;
+        }
+
+        .content-main {
+            
+            .main-item {
+                display: grid;
+                grid-template-columns: 3.7% 9.3% 8% 8.5% 8.2% 10.6% 8.75% 6.3% 11% 7.5% 10.15% 8%;
+
+                .item {
+                    max-height: 107px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    img {
+                        height: 100%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 991px) {
+    .main-lesson {
+        overflow-x: scroll;
+
+        .main-header {
+            width: 1923px;
+            align-items: baseline;
+        }
+
+        .main-content {
+            width: 1923px;
+        }
+    }
+}

@@ -1,0 +1,206 @@
+.sidebar {
+    width: 17.7%;
+    height: 100vh;
+    background-color: $sidebar-bg;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition: all 0.4s ease;
+
+    .navigation {
+        margin-top: 54.60px;
+        position: relative;
+
+        .close-btn {
+            display: none;
+
+            svg {
+                fill: #fff !important;
+            }
+        }
+
+        ul {
+
+            .nav-item {
+                padding: 0;
+
+                .item-link {
+                    color: $text-white;
+                    display: flex;
+                    align-items: flex-end;
+                    justify-content: center;
+                    margin-bottom: 22.52px;
+                    text-decoration: none;
+                    
+                    .link-icon {
+                        min-width: 24px;
+                    }
+
+                    .link-text {
+                        // margin-left: 22px;
+                        // font-weight: 500;
+                        display: none;
+                    }
+                }
+
+                &:hover {
+                    background: rgba(41, 69, 224, 0.7);
+                }
+            }
+        }
+    }
+}
+
+.sidebar-show {
+    width: 70%;
+    transition: all 0.4s ease-in;
+
+    .navigation {
+        margin-top: 54.60px;
+        position: relative;
+
+        .close-btn {
+            display: block;
+            position: absolute;
+            top: -10%;
+            right: 5%;
+
+            svg {
+                fill: #fff !important;
+            }
+        }
+
+        ul {
+
+            .nav-item {
+                padding: 10px 0 9px 28px;
+
+                .item-link {
+                    color: $text-white;
+                    display: flex;
+                    align-items: flex-end;
+                    justify-content: unset;
+                    margin-bottom: 22.52px;
+                    text-decoration: none;
+                    
+                    .link-icon {
+                        min-width: 24px;
+                    }
+
+                    .link-text {
+                        display: block;
+                        margin-left: 22px;
+                        font-size: 18px;
+                        font-weight: 500;
+                    }
+                }
+
+                &:hover {
+                    background: $sidebar-hover;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 991px) {
+    .sidebar {
+        height: 100vh;
+        
+        .navigation {
+
+            .close-btn {
+                display: none;
+            }
+
+            ul {
+
+                .nav-item {
+                    padding: 10px 0 9px 28px;
+    
+                    .item-link {
+                        color: $text-white;
+                        display: flex;
+                        align-items: center;
+                        justify-content: unset;
+                        margin-bottom: 0px;
+                        text-decoration: none;
+                        
+                        .link-icon {
+                            min-width: 24px;
+                        }
+    
+                        .link-text {
+                            display: block;
+                            margin-left: 22px;
+                            font-size: 14px;
+                            font-weight: 500;
+                        }
+                    }
+                }
+
+                .nav-child {
+
+                    .nav-item {
+                        padding: 10px 0 9px 28px;
+        
+                        .item-link {
+                            color: $text-white;
+                            display: flex;
+                            align-items: center;
+                            justify-content: unset;
+                            margin-bottom: 0px;
+                            text-decoration: none;
+                            
+                            .link-icon {
+                                min-width: 24px;
+                            }
+        
+                            .link-text {
+                                display: block;
+                                margin-left: 22px;
+                                font-size: 14px;
+                                font-weight: 500;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1687px) {
+    .sidebar {
+        width: 298px;
+
+        .navigation {
+
+            ul {
+
+                .nav-item {
+    
+                    .item-link {
+    
+                        .link-text {
+                            font-size: 18px;
+                        }
+                    }
+                }
+
+                .nav-child {
+
+                    .nav-item {
+        
+                        .item-link {
+        
+                            .link-text {
+                                font-size: 18px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

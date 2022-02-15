@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap');
+
+@import './variable';
+@import './sidebar';
+@import './main';
+@import './modal';
+@import './main-lesson';
+@import './main-school';
+@import './main-program';
+@import './main-subject';
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+ul,
+li,
+label {
+  margin-bottom: 0;
+}
+
+li {
+  list-style: none;
+}
+
+ul {
+  padding-left: 0px !important;
+}
+
+li {
+  list-style: none !important;
+}
+
+a {
+  text-decoration: none;
+}

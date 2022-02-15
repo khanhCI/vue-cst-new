@@ -1,0 +1,32 @@
+.main-program {
+
+    .main-content {
+
+        .content-header {
+            display: grid;
+            grid-template-columns: 5.15% 13% 11% 12% 9% 15% 10.5% 15% 9.35%;
+        }
+
+        .content-main {
+
+            .main-item {
+                display: grid;
+                grid-template-columns: 5.15% 13% 11% 12% 9% 15% 10.5% 15% 9.35%;
+
+                .item {
+                    max-height: 105px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+
+                .item-cover {
+
+                    img {
+                        height: 100%;
+                    }
+                }
+            }
+        }
+    }
+}
