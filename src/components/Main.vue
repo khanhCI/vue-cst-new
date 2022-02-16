@@ -472,4 +472,13 @@ export default {
     }
   }
 }
+
+@media screen and (min-width: 1440px) {
+  .main {
+
+    .main-content {
+      margin-top: 0;
+    }
+  }
+}
 </style>

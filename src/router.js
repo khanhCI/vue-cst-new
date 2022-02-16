@@ -7,6 +7,8 @@ import Main from './components/Main.vue';
 import MainLesson from './components/MainLesson.vue';
 import MainDistrict from './components/MainDistrict.vue';
 import MainSchool from './components/MainSchool.vue';
+import MainProgram from './components/MainProgram.vue';
+import MainSubject from './components/MainSubject.vue';
 import NotFound from './components/NotFound.vue';
 
 Vue.use(Router);
@@ -41,6 +43,14 @@ export const router = new Router({
       path: '/materials',
       component: Home,
       children: [
+        {
+          path: 'program',
+          component: MainProgram
+        },
+        {
+          path: 'subject',
+          component: MainSubject
+        },
         {
           path: 'lesson',
           component: MainLesson

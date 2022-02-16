@@ -1,5 +1,5 @@
 <template>
-  <section class="main">
+  <div class="main">
     <div class="main-header">
       <div class="header-taskbar">
         <div class="task-input taskbar-city">
@@ -332,7 +332,7 @@
         <div class="footer-item">3</div>
       </div>
     </div>
-  </section>
+  </div>
 </template>
 
 <script>
