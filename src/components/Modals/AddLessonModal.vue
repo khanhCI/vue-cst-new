@@ -2,24 +2,24 @@
   <div class="add-modal lesson-modal">
     <div class="modal-title">Thêm mới thông tin bài học audio và text</div>
     <div class="modal-close" @click.prevent="closeModal">
-      <img src="../assets/logo/x.svg" alt="close-btn" />
+      <img src="../../assets/logo/x.svg" alt="close-btn" />
     </div>
     <div class="modal-cover">
       <div class="cover-holder">
         <div class="cover-text">Ảnh bìa trái *</div>
         <div class="cover-photo">
-          <img src="../assets/photo/paper-1.png" alt="paper-1" />
+          <img src="../../assets/photo/paper-1.png" alt="paper-1" />
           <div class="photo-upload">
-            <img src="../assets/logo/Image.svg" alt="image" />
+            <img src="../../assets/logo/Image.svg" alt="image" />
           </div>
         </div>
       </div>
       <div class="cover-holder">
         <div class="cover-text">Ảnh bìa phải *</div>
         <div class="cover-photo">
-          <img src="../assets/photo/paper-1.png" alt="paper-1" />
+          <img src="../../assets/photo/paper-1.png" alt="paper-1" />
           <div class="photo-upload">
-            <img src="../assets/logo/Image.svg" alt="image" />
+            <img src="../../assets/logo/Image.svg" alt="image" />
           </div>
         </div>
       </div>
@@ -40,7 +40,7 @@
 
       <div class="input input-audio">
         <label>Audio bài học *</label>
-        <img src="../assets/photo/upload-audio.png" alt="upload-audio" />
+        <img src="../../assets/photo/upload-audio.png" alt="upload-audio" />
       </div>
 
       <div class="input input-title">
@@ -53,15 +53,15 @@
         <div class="input-area">
           <div class="area-header">
             <div class="header header-item">
-              <img src="../assets/logo/B.svg" alt="B" />
+              <img src="../../assets/logo/B.svg" alt="B" />
             </div>
 
             <div class="header header-item">
-              <img src="../assets/logo/I.svg" alt="I" />
+              <img src="../../assets/logo/I.svg" alt="I" />
             </div>
 
             <div class="header header-item">
-              <img src="../assets/logo/U.svg" alt="U" />
+              <img src="../../assets/logo/U.svg" alt="U" />
             </div>
 
             <div class="header header-font">
@@ -100,7 +100,7 @@
       <label>Trạng thái</label>
       <div class="status-box">
         Kích hoạt
-        <img src="../assets/logo/circle-ok.svg" alt="circle-ok" />
+        <img src="../../assets/logo/circle-ok.svg" alt="circle-ok" />
       </div>
     </div>
 

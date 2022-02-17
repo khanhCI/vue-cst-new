@@ -3,8 +3,8 @@
     <div class="main-header">
       <div class="header-taskbar">
         <div class="task-input taskbar-city">
-          <label>Tên Tỉnh/TP</label>
-          <input type="text" placeholder="Nhập tên tỉnh/tp cần tìm" />
+          <label>Tên trường</label>
+          <input type="text" placeholder="Nhập tên trường cần tìm" />
         </div>
 
         <div class="task-input taskbar-status">
@@ -36,7 +36,7 @@
           Tìm kiếm
         </div>
 
-        <div class="task-btn add-btn">
+        <div class="task-btn add-btn" @click.prevent="showAdd">
           <img src="../assets/logo/plus.svg" alt="search" />
           Thêm mới
         </div>
@@ -66,6 +66,14 @@
           <div class="dot"></div>
         </div>
       </div>
+    </div>
+
+    <div v-if="modalShow" class="modal-holder">
+      <AddModal 
+        class="add-modal"
+        @closeModal="closeModal"
+        :formDetail="formInfo"
+      />
     </div>
 
     <div class="main-content">
@@ -360,16 +368,42 @@
 </template>
 
 <script>
+import AddModal from './Modals/AddModal.vue';
+
 export default {
   name: 'MainSchool',
+  components: {
+    AddModal,
+  },
   data() {
     return {
       isShow: false,
+      modalShow: false,
+      formInfo: {
+        title: 'Thêm mới thông tin Trường',
+        inputLabel: 'Tên trường *',
+        inputPlaceHolder: 'Vui lòng nhập tên Trường',
+        inputName: 'school',
+        selectLabel: 'Thuộc Quận/Huyện *',
+        selectOptions: {
+          option1: 'Hà Đông',
+          option2: 'Cầu Giấy'
+        },
+        selectName: 'district',
+        statusLabel: 'Trạng thái',
+        btnText: 'Thêm mới'
+      }
     };
   },
   methods: {
     showDropDown() {
       this.isShow = !this.isShow;
+    },
+    showAdd() {
+      this.modalShow = !this.modalShow;
+    },
+    closeModal() {
+      this.modalShow = !this.modalShow;
     },
     logOut() {
       this.$store.dispatch('auth/logout');

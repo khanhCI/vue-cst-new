@@ -3,8 +3,8 @@
     <div class="main-header">
       <div class="header-taskbar">
         <div class="task-input taskbar-city">
-          <label>Tên Tỉnh/TP</label>
-          <input type="text" placeholder="Nhập tên quận/huyện" />
+          <label>Tên chương trình</label>
+          <input type="text" placeholder="Nhập tên chương trình" />
         </div>
 
         <div class="task-input taskbar-status">
@@ -20,7 +20,7 @@
           Tìm kiếm
         </div>
 
-        <div class="task-btn add-btn">
+        <div class="task-btn add-btn" @click.prevent="showModal">
           <img src="../assets/logo/plus.svg" alt="search" />
           Thêm mới
         </div>
@@ -50,6 +50,13 @@
           <div class="dot"></div>
         </div>
       </div>
+    </div>
+
+    <div v-if="modalShow" class="modal-holder">
+      <ModalWithImage 
+        :formDetail="formInfo"
+        @closeModal="closeModal"
+      />
     </div>
 
     <div class="main-content">
@@ -205,16 +212,36 @@
 </template>
 
 <script>
+import ModalWithImage from './Modals/ModalWithImage.vue';
+
 export default {
   name: 'MainProgram',
+  components: {
+    ModalWithImage
+  },
   data() {
     return {
       isShow: false,
+      modalShow: false,
+      formInfo: {
+        formType: 'program',
+        title: 'Thêm mới thông tin Chương trình',
+        inputLabel: 'Tên chương trình *',
+        inputPlaceHolder: 'Vui lòng nhập tên chương trình',
+        statusLabel: 'Trạng thái',
+        btnText: 'Thêm mới'
+      }
     };
   },
   methods: {
     showDropDown() {
       this.isShow = !this.isShow;
+    },
+    showModal() {
+      this.modalShow = !this.modalShow;
+    },
+    closeModal() {
+      this.modalShow = !this.modalShow;
     },
     logOut() {
       this.$store.dispatch('auth/logout');

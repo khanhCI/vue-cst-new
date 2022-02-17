@@ -302,7 +302,7 @@
 </template>
 
 <script>
-import AddLessonModal from './AddLessonModal.vue';
+import AddLessonModal from './Modals/AddLessonModal.vue';
 
 export default {
   name: 'MainLesson',

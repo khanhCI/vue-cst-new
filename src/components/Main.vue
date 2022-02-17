@@ -54,9 +54,10 @@
 
     <div v-if="modalShow" class="modal-holder">
       <AddModal
-        id="add-modal"
+        class="add-modal"
         @closeModal="closeModal"
         @addProvince="addProvince"
+        :formDetail="formInfo"
       />
     </div>
 
@@ -340,7 +341,7 @@
 </template>
 
 <script>
-import AddModal from './AddModal.vue';
+import AddModal from './Modals/AddModal.vue';
 import ProvinceService from '../services/province.service';
 
 export default {
@@ -364,6 +365,19 @@ export default {
           last_modified: 'Ngày sửa cuối',
         },
       ],
+      formInfo: {
+        title: 'Thêm mới thông tin Tỉnh/TP',
+        inputLabel: 'Tên Tỉnh/TP *',
+        inputPlaceHolder: 'Vui lòng nhập tên Tỉnh/TP',
+        inputName: 'province',
+        selectLabel: 'Quốc gia *',
+        selectOptions: {
+          option1: 'Việt Nam'
+        },
+        selectName: 'nation',
+        statusLabel: 'Trạng thái',
+        btnText: 'Thêm mới'
+      },
       infoProvinces: [],
       formData: {},
     };
@@ -384,8 +398,8 @@ export default {
     },
     async addProvince(e) {
       this.formData = {
-        city_name: e.province,
-        country: e.nation,
+        city_name: e.inputData,
+        country: e.selectData,
       };
       console.log(this.formData);
       await ProvinceService.postProvince(this.formData).then((response) => {
@@ -418,24 +432,24 @@ export default {
 .main {
   position: relative;
 
-  .modal-holder {
-    position: fixed;
-    z-index: 9998;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: table;
-    transition: opacity 0.3s ease;
+  // .modal-holder {
+  //   position: fixed;
+  //   z-index: 9998;
+  //   top: 0;
+  //   left: 0;
+  //   width: 100%;
+  //   height: 100%;
+  //   background-color: rgba(0, 0, 0, 0.5);
+  //   display: table;
+  //   transition: opacity 0.3s ease;
 
-    #add-modal {
-      position: absolute;
-      top: 10%;
-      right: 0;
-      left: 0;
-    }
-  }
+  //   .add-modal {
+  //     position: absolute;
+  //     top: 10%;
+  //     right: 0;
+  //     left: 0;
+  //   }
+  // }
 }
 
 .info-avt {

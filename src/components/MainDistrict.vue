@@ -3,8 +3,8 @@
     <div class="main-header">
       <div class="header-taskbar">
         <div class="task-input taskbar-city">
-          <label>Tên Tỉnh/TP</label>
-          <input type="text" placeholder="Nhập tên quận/huyện" />
+          <label>Tên Quận/Huyện</label>
+          <input type="text" placeholder="Tên Quận/Huyện" />
         </div>
 
         <div class="task-input taskbar-status">
@@ -28,7 +28,7 @@
           Tìm kiếm
         </div>
 
-        <div class="task-btn add-btn">
+        <div class="task-btn add-btn" @click.prevent="showAddModal">
           <img src="../assets/logo/plus.svg" alt="search" />
           Thêm mới
         </div>
@@ -58,6 +58,14 @@
           <div class="dot"></div>
         </div>
       </div>
+    </div>
+
+    <div v-if="modalShow" class="modal-holder">
+      <AddModal 
+        class="add-modal"
+        :formDetail="formInfo"
+        @closeModal="closeModal"
+      />
     </div>
 
     <div class="main-content">
@@ -336,16 +344,42 @@
 </template>
 
 <script>
+import AddModal from './Modals/AddModal.vue';
+
 export default {
   name: 'MainDistrict',
+  components: {
+    AddModal,
+  },
   data() {
     return {
       isShow: false,
+      modalShow: false,
+      formInfo: {
+        title: 'Thêm mới thông tin Quận/Huyện',
+        inputLabel: 'Tên Quận/Huyện *',
+        inputPlaceHolder: 'Vui lòng nhập tên Quận/Huyện',
+        inputName: 'district',
+        selectLabel: 'Thuộc Tỉnh/TP *',
+        selectOptions: {
+          option1: 'Hải Phòng',
+          option2: 'Hà Nội'
+        },
+        selectName: 'province',
+        statusLabel: 'Trạng thái',
+        btnText: 'Thêm mới'
+      }
     };
   },
   methods: {
     showDropDown() {
       this.isShow = !this.isShow;
+    },
+    showAddModal() {
+      this.modalShow = !this.modalShow;
+    },
+    closeModal() {
+      this.modalShow = !this.modalShow;
     },
     logOut() {
       this.$store.dispatch('auth/logout');
