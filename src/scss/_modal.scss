@@ -20,6 +20,7 @@
         position: absolute;
         top: 5%;
         right: 39px;
+        cursor: pointer;
     }
 
     .modal-input {
@@ -153,156 +154,159 @@
     padding: 16px 39px 10px 31px;
     height: 100%;
 
-    .modal-title {
-        margin-bottom: 31px;
-    }
+    .modal-mask {
 
-    .modal-close {
-        top: 1%;
-    }
-
-    .modal-cover {
-        display: flex;
-        height: 166px;
-        align-items: flex-start;
-        margin-bottom: 26px;
-
-        .cover-holder {
+        .modal-title {
+            margin-bottom: 31px;
+        }
+    
+        .modal-close {
+            top: 1%;
+        }
+    
+        .modal-cover {
             display: flex;
-
-            .cover-text {
-                font-size: 18px;
-                font-weight: 500;
-                color: $label-color;
-                margin-right: 17px;
-            }
-
-            .cover-photo {
-                width: 148px;
-                height: 148px;
-                position: relative;
-
-                img {
-                    width: 100%;
-                    height: 100%;
-                    border-radius: 14px;
+            height: 166px;
+            align-items: flex-start;
+            margin-bottom: 26px;
+    
+            .cover-holder {
+                display: flex;
+    
+                .cover-text {
+                    font-size: 18px;
+                    font-weight: 500;
+                    color: $label-color;
+                    margin-right: 17px;
                 }
-
-                .photo-upload {
-                    position: absolute;
-                    padding: 13px;
-                    background: $photo-upload-bg;
-                    border-radius: 50%;
-                    bottom: -15%;
-                    right: -15%;
-
+    
+                .cover-photo {
+                    width: 148px;
+                    height: 148px;
+                    position: relative;
+    
                     img {
-                        width: 31px;
-                        height: 31px;
+                        width: 100%;
+                        height: 100%;
+                        border-radius: 14px;
                     }
-                }
-            }
-        }
-
-        .cover-holder:first-child {
-            margin-right: 121px;
-        }
-    }
-
-    .modal-input {
-        margin-bottom: 14px;
-
-        .input-lesson {
-            margin-bottom: 15px;
-        }
-
-        .input-subject {
-            margin-bottom: 19px;
-        }
-
-        .input-audio {
-            margin-bottom: 18px;
-
-            img {
-                display: block;
-            }
-        }
-
-        .input-title {
-            margin-bottom: 12px;
-        }
-
-        .input-word {
-
-            .input-area {
-                box-shadow: inset 0px 0px 0px 1px $border-modal-input;
-                border-radius: 8px;
-                height: 175px;
-
-                .area-header {
-                    display: flex;
-                    padding: 3px 0px 5px 18px;
-
-                    .header-item {
-                        width: 38px;
-                        height: 36px;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        border-radius: 8px;
-                        box-shadow: inset 0px 0px 0px 1px $border-modal-input;
-
+    
+                    .photo-upload {
+                        position: absolute;
+                        padding: 13px;
+                        background: $photo-upload-bg;
+                        border-radius: 50%;
+                        bottom: -15%;
+                        right: -15%;
+    
                         img {
-                            width: 13px;
-                            height: 23px;
+                            width: 31px;
+                            height: 31px;
                         }
                     }
-
-                    .header-item:not(:last-child) {
-                        margin-right: 5px;
-                    }
-
-                    .header-font,
-                    .header-number,
-                    .header-heading {
-                        height: 36px;
-                        margin-right: 5px;
-                        
-                        select {
-                            padding: 6px 0 7px;
+                }
+            }
+    
+            .cover-holder:first-child {
+                margin-right: 121px;
+            }
+        }
+    
+        .modal-input {
+            margin-bottom: 14px;
+    
+            .input-lesson {
+                margin-bottom: 15px;
+            }
+    
+            .input-subject {
+                margin-bottom: 19px;
+            }
+    
+            .input-audio {
+                margin-bottom: 18px;
+    
+                img {
+                    display: block;
+                }
+            }
+    
+            .input-title {
+                margin-bottom: 12px;
+            }
+    
+            .input-word {
+    
+                .input-area {
+                    box-shadow: inset 0px 0px 0px 1px $border-modal-input;
+                    border-radius: 8px;
+                    height: 175px;
+    
+                    .area-header {
+                        display: flex;
+                        padding: 3px 0px 5px 18px;
+    
+                        .header-item {
+                            width: 38px;
                             height: 36px;
-                            width: 136px;
-
-                            option {
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            border-radius: 8px;
+                            box-shadow: inset 0px 0px 0px 1px $border-modal-input;
+    
+                            img {
+                                width: 13px;
+                                height: 23px;
+                            }
+                        }
+    
+                        .header-item:not(:last-child) {
+                            margin-right: 5px;
+                        }
+    
+                        .header-font,
+                        .header-number,
+                        .header-heading {
+                            height: 36px;
+                            margin-right: 5px;
+                            
+                            select {
+                                padding: 6px 0 7px;
+                                height: 36px;
                                 width: 136px;
+    
+                                option {
+                                    width: 136px;
+                                }
+                            }
+                        }
+    
+                        .header-number {
+                            margin-right: 11px;
+    
+                            select {
+                                width: 45px;
                             }
                         }
                     }
-
-                    .header-number {
-                        margin-right: 11px;
-
-                        select {
-                            width: 45px;
+    
+                    .area-body {
+    
+                        textarea {
+                            border: none;
+                            box-shadow: inset 0px 0px 0px 1px $border-modal-input;
+                            border-bottom-left-radius: 8px;
+                            border-bottom-right-radius: 8px;
                         }
-                    }
-                }
-
-                .area-body {
-
-                    textarea {
-                        border: none;
-                        box-shadow: inset 0px 0px 0px 1px $border-modal-input;
-                        border-bottom-left-radius: 8px;
-                        border-bottom-right-radius: 8px;
                     }
                 }
             }
         }
-    }
-
-    .modal-status {
-        margin-bottom: 17px;
+    
+        .modal-status {
+            margin-bottom: 17px;
+        }
     }
 }
 
@@ -392,6 +396,22 @@
                     }
                 }
             }
+        }
+    }
+}
+
+.choose-modal {
+    width: 594px;
+    height: 393px;
+
+    .modal-btn {
+
+        button {
+            width: 429px;
+        }
+
+        button:not(:last-child) {
+            margin-bottom: 16px;
         }
     }
 }

@@ -83,7 +83,16 @@
     </div>
 
     <div class="modal-holder" v-if="modalShow">
-      <AddLessonModal id="add-lesson" @closeModal="closeModal" />
+      <!-- <AddLessonModal id="add-lesson" @closeModal="closeModal" /> -->
+      <ChooseModal
+        class="add-modal"
+        @closeModal="closeModal"
+        @showAudioLesson="showAudioLesson"
+      />
+    </div>
+
+    <div class="modal-holder" v-if="formShow">
+      <ModalWithImage :formDetail="formInfo" @closeModal="closeModal" />
     </div>
 
     <div class="main-content">
@@ -302,15 +311,19 @@
 </template>
 
 <script>
-import AddLessonModal from './Modals/AddLessonModal.vue';
+// import AddLessonModal from './Modals/AddLessonModal.vue';
+import ChooseModal from './Modals/ChooseModal.vue';
+import ModalWithImage from './Modals/ModalWithImage.vue';
 
 export default {
   name: 'MainLesson',
-  components: { AddLessonModal },
+  components: { ChooseModal, ModalWithImage },
   data() {
     return {
       modalShow: false,
       isShow: false,
+      formShow: false,
+      formInfo: {},
     };
   },
   methods: {
@@ -322,6 +335,11 @@ export default {
     },
     closeModal() {
       this.modalShow = !this.modalShow;
+    },
+    showAudioLesson(e) {
+      this.formInfo = e;
+      this.formShow = !this.formShow;
+      console.log(this.formInfo);
     },
     logOut() {
       this.$store.dispatch('auth/logout');
