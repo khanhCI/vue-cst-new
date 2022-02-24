@@ -6,9 +6,11 @@
     </div>
 
     <div class="modal-btn">
-      <button @click.prevent="showAudioLesson">Bài học Audio và Text</button>
+      <!-- <button @click.prevent="showAudioLesson">Bài học Audio và Text</button>
       <button>Bài học Video</button>
-      <button>Bài học Kiểm tra</button>
+      <button>Bài học Kiểm tra</button> -->
+      <button @click.prevent="showAudioLesson">Bài học Audio, Text, Video</button>
+      <button>Bài học Luyện tập</button>
     </div>
   </div>
 </template>
@@ -19,19 +21,22 @@ export default {
   data() {
     return {
       lessonAudio: {
-        formType: 'audio',
+        formType: 'media',
         title: 'Thêm mới thông tin bài học audio và text',
+        coverLeft: 'Ảnh bìa trái *',
+        coverRight: 'Ảnh bìa phải *',
         inputLabel: 'Tên bài học *',
         inputPlaceHolder: 'Vui lòng nhập tên bài học',
         inputName: 'lesson name',
         selectLabel: 'Thuộc môn học *',
-        selectOptions: {
-          option1: 'Toán',
-          option2: 'Tiếng Việt',
-        },
+        selectOptions: [
+          'Toán', 'Tiếng Việt'
+        ],
         audioTitle: 'Audio bài học *',
+        videoTitle: 'Video bài học',
         subjectTitle: 'Tiêu đề bài học *',
         subjectPlaceHolder: 'Vui lòng nhập tên bài học',
+        contentTitle: 'Nội dung bài học *',
         selectName: 'subject',
         statusLabel: 'Trạng thái',
         btnText: 'Thêm mới',

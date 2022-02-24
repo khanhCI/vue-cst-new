@@ -92,7 +92,7 @@
     </div>
 
     <div class="modal-holder" v-if="formShow">
-      <ModalWithImage :formDetail="formInfo" @closeModal="closeModal" />
+      <ModalWithImage :formDetail="formInfo" @closeModal="closeModal" class="add-lesson" />
     </div>
 
     <div class="main-content">
@@ -335,6 +335,7 @@ export default {
     },
     closeModal() {
       this.modalShow = !this.modalShow;
+      this.formShow = !this.formShow;
     },
     showAudioLesson(e) {
       this.formInfo = e;
@@ -373,6 +374,15 @@ export default {
       left: 0;
       height: 100%;
       overflow-y: scroll;
+    }
+
+    .add-lesson {
+      top: 0;
+      overflow-y: scroll;
+    }
+
+    ::-webkit-scrollbar {
+      width: 10px;
     }
   }
 }

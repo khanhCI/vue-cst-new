@@ -3,8 +3,7 @@
     class="add-modal program-add"
     :class="{
       'subject-add': formDetail.formType === 'subject',
-      'lesson-modal':
-        formDetail.formType === 'audio' || formDetail.formType === 'video',
+      'lesson-modal': formDetail.formType === 'media',
     }"
   >
     <div class="modal-mask">
@@ -26,14 +25,9 @@
         </div>
       </div>
 
-      <div
-        v-if="
-          formDetail.formType === 'audio' || formDetail.formType === 'video'
-        "
-        class="modal-cover"
-      >
+      <div v-if="formDetail.formType === 'media'" class="modal-cover">
         <div class="cover-holder">
-          <div class="cover-text">Ảnh bìa trái *</div>
+          <div class="cover-text">{{formDetail.coverLeft}}</div>
           <div class="cover-photo">
             <img src="../../assets/photo/paper-1.png" alt="paper-1" />
             <div class="photo-upload">
@@ -42,7 +36,7 @@
           </div>
         </div>
         <div class="cover-holder">
-          <div class="cover-text">Ảnh bìa phải *</div>
+          <div class="cover-text">{{formDetail.coverRight}}</div>
           <div class="cover-photo">
             <img src="../../assets/photo/paper-1.png" alt="paper-1" />
             <div class="photo-upload">
@@ -51,8 +45,11 @@
           </div>
         </div>
       </div>
-      <div class="modal-input">
-        <div class="input input-country">
+
+      <div class="modal-input" v-if="formDetail.formType === 'subject' || formDetail.formType === 'program'">
+        <div
+          class="input input-country"
+        >
           <label>{{ formDetail.inputLabel }}</label>
           <input type="text" :placeholder="formDetail.inputPlaceHolder" />
         </div>
@@ -72,32 +69,38 @@
         </div>
       </div>
 
-      <div v-if="formDetail.formType === 'audio'" class="modal-input">
-        <!-- <div class="input input-lesson">
-          <label>Tên bài học *</label>
-          <input type="text" placeholder="Vui lòng nhập tên bài học" />
-        </div> -->
+      <div v-if="formDetail.formType === 'media'" class="modal-input">
+        <div class="input input-lesson">
+          <label>{{formDetail.inputLabel}}</label>
+          <input type="text" :placeholder="formDetail.inputPlaceHolder" />
+        </div>
 
         <div class="input input-subject">
-          <label>Thuộc môn học *</label>
+          <label>{{formDetail.selectLabel}}</label>
           <select name="subject">
-            <option value="Toán">Toán</option>
-            <option value="Tiếng Việt">Tiếng Việt</option>
+            <!-- <option value="Toán">Toán</option>
+            <option value="Tiếng Việt">Tiếng Việt</option> -->
+            <option  v-for="option in formDetail.selectOptions" :key="option" :value="option">{{option}}</option>
           </select>
         </div>
 
-        <div class="input input-audio">
-          <label>Audio bài học *</label>
-          <img src="../../assets/photo/upload-audio.png" alt="upload-audio" />
+        <div class="input input-media input-media-1">
+          <label>{{formDetail.videoTitle}}</label>
+          <img src="../../assets/photo/upload-audio.svg" alt="upload-audio" />
+        </div>
+
+        <div class="input input-media">
+          <label>{{formDetail.audioTitle}}</label>
+          <img src="../../assets/photo/upload-audio.svg" alt="upload-audio" />
         </div>
 
         <div class="input input-title">
-          <label>Tiêu đề bài học *</label>
-          <input type="text" placeholder="Vui lòng nhập tên bài học" />
+          <label>{{formDetail.subjectTitle}}</label>
+          <input type="text" :placeholder="formDetail.subjectPlaceHolder" />
         </div>
 
         <div class="input input-word">
-          <label>Nội dung bài học *</label>
+          <label>{{formDetail.contentTitle}}</label>
           <div class="input-area">
             <div class="area-header">
               <div class="header header-item">
@@ -136,7 +139,7 @@
             <div class="area-body">
               <textarea
                 name=""
-                style="width: 100%; height: 131px"
+                style="width: 100%; height: 107px"
                 placeholder="Vui lòng nhập nội dung bài học"
               ></textarea>
             </div>
@@ -150,6 +153,13 @@
           Kích hoạt
           <img src="../../assets/logo/circle-ok.svg" alt="circle-ok" />
         </div>
+      </div>
+
+      <div class="modal-warn" v-if="formDetail.formType === 'media'">
+        <p>
+          * Vui lòng nhập ít nhất 1 nội dung: video hoặc audio hoặc tiêu đề, nội
+          dung bài học
+        </p>
       </div>
 
       <div class="modal-btn">
