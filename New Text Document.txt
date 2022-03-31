@@ -1,1 +1,8 @@
 npm run serve
+
+-src
+ -assers - logo and photo
+ -components - contains components
+ -services ~ service in angular.
+ -store - state management (Vuex)
+ -view ~ page in angular.
