@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://54.169.107.162/clouddoctor/';
+const API_URL = 'http://192.168.1.34/emrserver/';
 
 class AuthService {
   login(user) {
@@ -12,7 +12,8 @@ class AuthService {
         if (response.data.access_token) {
            const data = response.data;
            data.accessToken = data.access_token;
-          localStorage.setItem('user', JSON.stringify(response.data));
+          const user = localStorage.setItem('user', JSON.stringify(response.data));
+          console.log(user);
         }
 
         return response.data;
